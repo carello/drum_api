@@ -1,0 +1,5 @@
+flask
+ArgumentParser
+requests
+paho-mqtt
+dnspython
