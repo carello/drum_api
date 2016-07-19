@@ -26,9 +26,8 @@ CMD ["python", "mydrummer_app.py"]
 #CMD ["mydrummer_app.py", "--dataserver=",$DATA_SERVER]
 #CMD ["mydrummer_app.py --dataserver=DATA_SERVER"]
 
-
-
-#-------------------
+# NOTES -------------------
+# NOTES -------------------
 # this works
 #CMD ["mydrummer_app.py", "--dataserver=http://192.168.99.100:32819"]
 
