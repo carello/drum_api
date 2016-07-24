@@ -1,22 +1,15 @@
 from flask import Flask, make_response, request, jsonify, Response
-import datetime
 import urllib
 import json
-import os, sys, socket
+import os
 import requests
 
-# import dns.resolver
 
-
-# options_cache = ({'options':[]},datetime.datetime.now())
 options_cache = False
-#results_cache = False
 
 app = Flask(__name__)
 
-
-#DATASERVER = "http://127.0.0.1:5003"
-
+DATASERVER = "http://127.0.0.1:5003"
 
 @app.route("/drummer_list")
 def drummer_list():
@@ -28,11 +21,24 @@ def drummer_list():
     return resp
 
 
-@app.route("/options", methods=["GET", "PUT", "POST"])
+@app.route("/stevegadd")
+def drummer():
+    u = urllib.urlopen(DATASERVER + "/stevegadd")
+    page = u.read()
+    stevegadd = json.loads(page)['stevegadd']
+    resp = Response(json.dumps(stevegadd))
+    return resp
+
+@app.route("/buddyrich")
+def buddyrich():
+    u = urllib.urlopen(DATASERVER + "/buddyrich")
+    page = u.read()
+    buddyrich = json.loads(page)['buddyrich']
+    resp = Response(json.dumps(buddyrich))
+    return resp
+
+@app.route("/options", methods=["GET"])
 def options_route():
-    '''
-    Methods used to view options, add new option, and replace options.
-    '''
     
     u = DATASERVER + "/options"
     
@@ -48,5 +54,5 @@ def options_route():
     
 
 if __name__ == '__main__':
-    DATASERVER = os.getenv('data_server')
-    app.run(debug=True, host='0.0.0.0')
+    #DATASERVER = os.getenv('data_server')
+    app.run(debug=True, host='0.0.0.0', port=int("5002"))
