@@ -4,10 +4,11 @@ import json
 import os, sys, socket
 import requests
 
+# Phase 3
+
 
 app = Flask(__name__)
 
-#DATASERVER = "http://127.0.0.1:5003"
 
 
 @app.route("/mess", methods=["POST"])
