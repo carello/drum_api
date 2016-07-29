@@ -9,7 +9,7 @@ import requests
 
 app = Flask(__name__)
 
-#DATASERVER = "http://127.0.0.1:5003"
+DATASERVER = "http://192.168.99.100:5003"
 
 
 @app.route("/mess", methods=["POST"])
@@ -40,5 +40,5 @@ def options_route():
 
 
 if __name__ == '__main__':
-    DATASERVER = os.getenv('data_server')
-    app.run(debug=True, host='0.0.0.0')
+    #DATASERVER = os.getenv('data_server')
+    app.run(debug=True, host='0.0.0.0', port=int('5002'))

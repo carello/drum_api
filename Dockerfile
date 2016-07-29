@@ -1,5 +1,5 @@
 FROM ubuntu:14.04
-EXPOSE 5000
+EXPOSE 5002
 MAINTAINER Chet Carello "cpuskarz@cisco.com"
 
 VOLUME ["/app/data"]
