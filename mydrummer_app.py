@@ -9,13 +9,12 @@ import requests
 
 app = Flask(__name__)
 
-#DATASERVER = "http://192.168.99.100:5003"
+#DATASERVER = "http://127.0.0.1:5003"
 
 
 @app.route("/mess", methods=["POST"])
 def messit():
     drummer = request.data
-    #return drummer
     resp = findme2(drummer)
     return resp
 
@@ -32,10 +31,7 @@ def options_route():
     if request.method == "GET":
         page = requests.get(u)
         options = page.json()
-        status = 200
-    resp = Response(
-        json.dumps(options, sort_keys=True, indent = 4, separators = (',', ': ')),
-        content_type='application/json', status=status)
+        resp = Response(json.dumps(options), content_type='application/json')
     return resp
 
 
